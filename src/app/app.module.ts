@@ -8,24 +8,29 @@ import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MAT_FORM_FIELD_DEFAULT_OPTIONS} from '@angular/material/form-field';
 
+import { AppRoutingModule } from './app-routing.module';
+
 import { AppComponent } from './app.component';
 
 import { HomeComponent } from './components/home/home.component';
 
-import { HomeModule } from './components/home/home.module';
+import { HomeModule } from 'src/app/components/home/home.module';
 
 import { MaterialModule } from './material.module';
+import { MainComponent } from './components/main/main.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { SidenavComponent } from './components/sidenav/sidenav.component';
 
 // Default MatFormField appearance to 'fill' as that is the new recommended approach and the
 // `legacy` and `standard` appearances are scheduled for deprecation in version 10.
 // This makes the examples that use MatFormField render the same in StackBlitz as on the docs site.
 @NgModule({
   imports: [
+    AppRoutingModule,
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
-    HomeModule,
     MaterialModule,
     MatNativeDateModule,
     ReactiveFormsModule,
@@ -33,11 +38,14 @@ import { MaterialModule } from './material.module';
   ],
   entryComponents: [],
   declarations: [
-      HomeComponent
+        AppComponent,
+        MainComponent,
+        NavbarComponent,
+        SidenavComponent
     ],
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent, MainComponent, NavbarComponent, SidenavComponent],
   providers: [
     { provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'fill' } },
   ]
 })
-export class AppModule {}
+export class AppModule { }

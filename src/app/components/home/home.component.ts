@@ -14,7 +14,7 @@ export class HomeComponent implements OnInit {
   }
 
   onClick() {
-    console.log("huy");
+    alert('Ti huy!');
   }
 
 }
